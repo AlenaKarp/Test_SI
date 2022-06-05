@@ -46,7 +46,8 @@ public class ListRand
         Tail.Prev = Head;
         Count = 2;
     } 
-        public void Add(string data)
+
+    public void Add(string data)
     {
         var item = new ListNode();
         item.Data = data;
@@ -55,13 +56,15 @@ public class ListRand
         Tail = item;
         Count++;
     }
-        public void Random()
+
+    public void Random()
     {
         //связь как в условии
         Head.Next.Rand = Head.Next;
         Head.Next.Next.Rand = Tail;
         Tail.Prev.Rand = Head;
     }
+
     public void Serialize()
     {
         int hashCode = 0; 
@@ -79,7 +82,7 @@ public class ListRand
             index++;
         }
 
-        if(File.Exists(@"C:\Users\Panda\hwapp\save"))    //s.name))
+        if (File.Exists(@"C:\Users\Panda\hwapp\save"))    //s.name
         {
             using (var s = File.Open("save", FileMode.Open))
             {
@@ -99,7 +102,7 @@ public class ListRand
                 {
                     using (BinaryWriter writer = new BinaryWriter(s))
                     { 
-                        writer.Write(byteArray,0,byteArray.Length);
+                        writer.Write(byteArray, 0, byteArray.Length);
                         for (ListNode cur = Head; cur != null; cur = cur.Next)
                         {
                             writer.Write(cur.Data);
